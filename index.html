@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col text-center display-2">
+            JS dino game
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <canvas id="game-canvas" class="w-100"  style=" background-color: black; display: none">
+
+            </canvas>
+        </div>
+    </div>
+    <div class="my-2" id="loading-div">
+        <div class="row">
+            <div class="col lead text-center">Please wait while the game is loading...</div>
+        </div>
+        <div class="row ">
+            <div class="col-1 offset-2 text-end">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="col-6 text-start">
+                <div class="progress">
+                    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="card w-100" >
+                <div class="card-body">
+                    <h5 class="card-title text-center">Controls</h5>
+                    <p class="card-text">Use "arrow up" to jump!</p>
+                    <p class="card-text">Thats basically it!</p>
+                    <a href="www.chenko.be" class="btn btn-primary">My website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="js/load.js"></script>
+</body>
+</html>
