@@ -39,6 +39,8 @@ const fallIncreaser = 1.04;
 let gameSpeed = 1;
 let gameFrame = 0;
 
+let timeBetweenSpawn = 250
+
 //gameLoop
 const drawGame = () => {
     requestAnimationFrame(drawGame)
@@ -71,11 +73,21 @@ const drawPlayer = () => {
 //enemySpawner
 const spawnEnemy = () => {
     // don't spawn enemy every frame
-    if (gameFrame % 300 !== 0) return;
+    if (gameFrame % timeBetweenSpawn !== 0) return;
+    //when spawning an enemy, increase gameSpeed
+    gameSpeed += 0.4
+    //after spawning, reduce time for next spawn
+    if (timeBetweenSpawn > 50) { // do not go too low, randomly go under 50 afterwards dont decrease timeBetweenSpawn anymore
+        timeBetweenSpawn -= Math.floor(Math.random()*10) // between 0 and 9 or 10, no clue
+    }
+
+
     const spawningEnemy = {...enemy};
     const randomHeight = Math.random() * 15
     spawningEnemy.y = canvas.height-randomHeight;
     spawningEnemy.ySize = randomHeight;
+    // a little different spawning for each enemy
+    // could be a lot better tho
     spawningEnemy.x += Math.random()*30;
     enemyArray.push(spawningEnemy)
 }
