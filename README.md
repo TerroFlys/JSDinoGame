@@ -20,6 +20,7 @@
 * [ ] Keep high-score in local storage
 * [ ] Other features
 * [ ] Completed
+* [ ] Add loading back in
 
 
 ## While you are reading:
