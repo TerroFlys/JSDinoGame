@@ -157,7 +157,6 @@ const fall = () => {
         fallForce = baseFallForce;
         isFalling = false
     }
-    ;
 }
 
 //keydown event listener
