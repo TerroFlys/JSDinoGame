@@ -1,6 +1,5 @@
 # Read me!
 
----
 
 >In this repository I am going to create a JS game, 
 > similar to the dino game from chrome,
