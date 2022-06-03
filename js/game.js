@@ -164,9 +164,9 @@ const fall = () => {
 
 //keydown event listener
 const keyDown = (event) => {
+    if (event.keyCode === 38 || event.keyCode === 32) event.preventDefault();
     if ((event.keyCode !== 38 && event.keyCode !== 32) || isJumping || isFalling) return; //keyCode 32 = space, 38 = arrow up
     isJumping = true; // put this on true after passing the IF statement
-
 }
 
 //Game Over method to reset the game
