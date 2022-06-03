@@ -9,6 +9,9 @@
 
 ![No Wifi Game](https://img.gurugamer.com/resize/740x-/2020/08/30/image-7-no-internet-game-google-f63c.png)
 
+#### How it currently looks:
+![My game's looks](https://i.imgur.com/kCynsH0.png)
+
 #### TODO:
 * [x] Create the basics of the site
 * [x] Movable player
