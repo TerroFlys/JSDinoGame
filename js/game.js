@@ -73,7 +73,7 @@ const fall = () => {
 }
 
 const keyDown = (event) => {
-    if (event.keyCode !== 32 || isJumping || isFalling) return; //keyCode 32 = space
+    if ((event.keyCode !== 38 && event.keyCode !== 32) || isJumping || isFalling) return; //keyCode 32 = space, 38 = arrow up
     isJumping = true; // put this on true after passing the IF statement
 
 }
