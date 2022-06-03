@@ -45,6 +45,7 @@ let timeBetweenSpawn = 250
 const drawGame = () => {
     requestAnimationFrame(drawGame)
     gameFrame += 1;
+
     //clear the screen
     clearScreen()
     //spawn enemy
@@ -53,11 +54,14 @@ const drawGame = () => {
     jump()
     fall()
     enemyMove()
+    collisionCheck()
     //after that draw everything
     drawPlayer()
     drawEnemies()
 
     enemyCleaner()
+    //after everything is done increase the score
+    score = gameFrame;
 }
 //method to clear the screen in order to redraw
 const clearScreen = () => {
@@ -109,6 +113,22 @@ const enemyCleaner = () => {
     enemyArray = enemyArray.filter(obj => obj.x >0-obj.xSize)
 }
 //collision detection
+const collisionCheck = () => {
+    // if player collides with an enemy, reset game
+    enemyArray.forEach(obj => {
+        //check  if player's y is in enemies y
+        //check if enemy is in but left sticks out
+        //check if enemy is in but right sticks out
+        //check if enemy is completely in
+        // this ***Should*** work, tbh I have no clue atm
+        if ((obj.x > player.x && obj.x < player.x + player.xSize || obj.x < player.x && obj.x + obj.xSize > player.x) && //this was x, now  comes y
+            (obj.y > player.y && obj.y < player.y + player.ySize || obj.y < player.y && obj.y + obj.ySize > player.y)){
+            console.log("x collision detected")
+        }
+    })
+
+}
+
 
 //jump method
 const jump = () => {
@@ -121,8 +141,9 @@ const jump = () => {
         isJumping = false
         isFalling = true
     }
-
 }
+
+//fall method
 const fall = () => {
     if (isJumping || !isFalling) return;
     player.y += fallForce;
@@ -133,6 +154,7 @@ const fall = () => {
     };
 }
 
+//keydown event listener
 const keyDown = (event) => {
     if ((event.keyCode !== 38 && event.keyCode !== 32) || isJumping || isFalling) return; //keyCode 32 = space, 38 = arrow up
     isJumping = true; // put this on true after passing the IF statement
