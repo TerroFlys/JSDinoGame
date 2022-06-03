@@ -16,11 +16,11 @@
 * [x] Create something that is playable
 * [ ] Add images (*sprites*) instead of blocks etc
 * [ ] Base game
-* [ ] Score counter
+* [x] Score counter
 * [ ] Keep high-score in local storage
-* [ ] Other features
 * [ ] Completed
 * [ ] Add loading back in
+* [ ] Other features TBA
 
 
 ## While you are reading:
