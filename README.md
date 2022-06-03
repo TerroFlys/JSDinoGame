@@ -12,9 +12,12 @@
 
 #### TODO:
 * [x] Create the basics of the site
+* [x] Movable player
+* [ ] Enemy objects like a cactus
 * [ ] Create something that is playable
 * [ ] Add images (*sprites*) instead of blocks etc
 * [ ] Base game
+* [ ] Score counter
 * [ ] Keep high-score in local storage
 * [ ] Other features
 * [ ] Completed
