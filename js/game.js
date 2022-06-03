@@ -61,7 +61,9 @@ const drawGame = () => {
 
     enemyCleaner()
     //after everything is done increase the score
-    score = gameFrame;
+    score = gameFrame/5;
+    //draw score
+    drawScore()
 }
 //method to clear the screen in order to redraw
 const clearScreen = () => {
@@ -179,6 +181,15 @@ const gameOver = () => {
     score = 0;
     //empty enemy array
     enemyArray = []
+    //this should be everything
+}
+
+//Draw score/highscore
+const drawScore = () => {
+    ctx.fillStyle = "white";
+    const fontSize = 15;
+    ctx.fillText(`Score: ${Math.floor(score)} Highscore: ${Math.floor(highscore)}`, canvas.width / 2.7, fontSize);
+    ctx.font = `${fontSize}px Designer`;
 }
 
 
