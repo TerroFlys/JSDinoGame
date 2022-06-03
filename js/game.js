@@ -7,7 +7,7 @@ const ctx = canvas.getContext("2d");
 
 //player object
 const player = {
-    x: 0, // should not be changed
+    x: 20, // should not be changed
     y: 0, // This will be changed when jumping
     xSize: 20,
     ySize: 40
