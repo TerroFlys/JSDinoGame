@@ -59,6 +59,10 @@ const drawPlayer = () => {
     ctx.fillStyle = "white"
     ctx.fillRect(player.x,player.y,player.xSize,player.ySize)
 }
+//enemySpawner
+//drawEnemy - Game speed stuff
+//remove Passed Enemies
+//collision detection
 
 //jump method
 const jump = () => {
