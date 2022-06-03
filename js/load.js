@@ -3,7 +3,7 @@ const loadingDivElement = document.getElementById("loading-div");
 const gameElement = document.getElementById("game-canvas");
 let number = 0;
 let increaser = 1;
-let randomIncreaser = 30;
+let randomIncreaser = 100;
 const increaseLoadingBar = () => {
     if (number >= 100){
         loadingDivElement.style.display = "none";
