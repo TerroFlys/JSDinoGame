@@ -13,6 +13,12 @@ const player = {
     ySize: 40 // added Y size to the player Y
 }
 //enemy template object
+const enemy = {
+    x: canvas.width,
+    y: canvas.height-10, // canvas.height-ySize
+    xSize: 5,
+    ySize: 10 // added Y size to the enemy Y
+}
 
 //variables
 let score = 0;
