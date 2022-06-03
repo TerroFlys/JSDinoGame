@@ -77,7 +77,7 @@ const spawnEnemy = () => {
     //when spawning an enemy, increase gameSpeed
     gameSpeed += 0.4
     //after spawning, reduce time for next spawn
-    if (timeBetweenSpawn > 50) { // do not go too low, randomly go under 50 afterwards dont decrease timeBetweenSpawn anymore
+    if (timeBetweenSpawn > 150) { // do not go too low, randomly go under 150 afterwards don't decrease timeBetweenSpawn anymore
         timeBetweenSpawn -= Math.floor(Math.random()*10) // between 0 and 9 or 10, no clue
     }
 
