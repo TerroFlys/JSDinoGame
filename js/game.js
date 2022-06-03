@@ -3,6 +3,8 @@
 /**@type {HTMLCanvasElement}*/
 const canvas = document.getElementById("game-canvas")
 const ctx = canvas.getContext("2d");
+canvas.width = 1000;
+canvas.height = 500;
 
 
 //player object
@@ -186,7 +188,7 @@ const gameOver = () => {
 //Draw score/highscore
 const drawScore = () => {
     ctx.fillStyle = "white";
-    const fontSize = 15;
+    const fontSize = 36;
     ctx.fillText(`Score: ${Math.floor(score)} Highscore: ${Math.floor(highscore)}`, canvas.width / 2.7, fontSize);
     ctx.font = `${fontSize}px Designer`;
 }
