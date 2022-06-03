@@ -19,6 +19,7 @@ const enemy = {
     xSize: 5,
     ySize: 10 // added Y size to the enemy Y
 }
+let enemyArray = [] // list of spawned enemies
 
 //variables
 let score = 0;
@@ -42,11 +43,15 @@ const drawGame = () => {
     requestAnimationFrame(drawGame)
     //clear the screen
     clearScreen()
+    //spawn enemy
+    spawnEnemy()
     //then do the 'physics' and 'checks'
     jump()
     fall()
+    enemyMove()
     //after that draw everything
     drawPlayer()
+    drawEnemies()
 }
 //method to clear the screen in order to redraw
 const clearScreen = () => {
@@ -60,7 +65,26 @@ const drawPlayer = () => {
     ctx.fillRect(player.x,player.y,player.xSize,player.ySize)
 }
 //enemySpawner
-//drawEnemy - Game speed stuff
+const spawnEnemy = () => {
+    const spawningEnemy = {...enemy};
+    const randomHeight = Math.random() * 15
+    spawningEnemy.y = canvas.height-randomHeight;
+    spawningEnemy.ySize = randomHeight;
+    enemyArray.push(spawningEnemy)
+}
+//drawEnemy
+const drawEnemies = () => {
+    enemyArray.forEach(obj => {
+        ctx.fillStyle = "red"
+        ctx.fillRect(obj.x,obj.y,obj.xSize,obj.ySize)
+    })
+}
+//Move enemy - Game speed stuff
+const enemyMove = () => {
+    enemyArray.map(obj => {
+        obj.x -= gameSpeed;
+    })
+}
 //remove Passed Enemies
 //collision detection
 
