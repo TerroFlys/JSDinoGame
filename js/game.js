@@ -8,16 +8,19 @@ const ctx = canvas.getContext("2d");
 //player object
 const player = {
     x: 20, // should not be changed
-    y: 0, // This will be changed when jumping
+    y: canvas.height-40, // This will be changed when jumping
     xSize: 20,
-    ySize: 40
+    ySize: 40 // added Y size to the player Y
 }
+//enemy template object
+
 //variables
 let score = 0;
 let highscore = 0;
 let isJumping = false; // change this to true to start the jump
 let isFalling = true; // when reaching the ground this should be changed to false
 
+//'Physics'
 const baseJumpForce = 0.6;
 let jumpforce = baseJumpForce;
 const jumpIncreaser = 1.08;
@@ -25,6 +28,8 @@ const jumpIncreaser = 1.08;
 const baseFallForce = 0.2;
 let fallForce = baseFallForce;
 const fallIncreaser = 1.04;
+//speed for the object that go towards the player
+let gameSpeed = 1;
 
 //gameLoop
 const drawGame = () => {
@@ -55,7 +60,7 @@ const jump = () => {
     //check if jump reached jump height to turn isJumping off and turn isFalling on
     player.y -= jumpforce;
     jumpforce *= jumpIncreaser;
-    if (player.y <= 0){ // reaching max height
+    if (player.y <= 0 + canvas.height/6){ // reaching max height
         jumpforce = baseJumpForce;
         isJumping = false
         isFalling = true
