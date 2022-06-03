@@ -179,9 +179,6 @@ const gameOver = () => {
     score = 0;
     //empty enemy array
     enemyArray = []
-
-
-
 }
 
 
