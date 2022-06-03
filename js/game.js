@@ -9,17 +9,18 @@ canvas.height = 500;
 
 //player object
 const player = {
-    x: 20, // should not be changed
-    y: canvas.height - 40, // This will be changed when jumping
-    xSize: 20,
-    ySize: 40 // added Y size to the player Y
-}
+    x: 60, // should not be changed
+    y: canvas.height - 80, // This will be changed when jumping
+    xSize: 40,
+    ySize: 80 // added Y size to the player Y
+} // Ground detection and teleport is needed
+
 //enemy template object
 const enemy = {
     x: canvas.width,
-    y: canvas.height - 10, // canvas.height-ySize
-    xSize: 5,
-    ySize: 10 // added Y size to the enemy Y
+    y: canvas.height - 40, // canvas.height-ySize
+    xSize: 20,
+    ySize: 40 // added Y size to the enemy Y
 }
 let enemyArray = [] // list of spawned enemies
 
@@ -63,7 +64,7 @@ const drawGame = () => {
 
     enemyCleaner()
     //after everything is done increase the score
-    score = gameFrame/5;
+    score = gameFrame / 5;
     //draw score
     drawScore()
 }
@@ -88,18 +89,18 @@ const spawnEnemy = () => {
     }
 
     //after spawning, reduce time for next spawn
-    if (timeBetweenSpawn > 150) { // do not go too low, randomly go under 150 afterwards don't decrease timeBetweenSpawn anymore
-        timeBetweenSpawn -= Math.floor(Math.random() * 10) // between 0 and 9 or 10, no clue
+    if (timeBetweenSpawn > 250) { // do not go too low, randomly go under 250 afterwards don't decrease timeBetweenSpawn anymore
+        timeBetweenSpawn -= Math.floor(Math.random() * 10) // between 0 and 9
     }
 
 
     const spawningEnemy = {...enemy};
-    const randomHeight = Math.random() * 15
+    const randomHeight = Math.random() * 60+15
     spawningEnemy.y = canvas.height - randomHeight;
     spawningEnemy.ySize = randomHeight;
     // a little different spawning for each enemy
     // could be a lot better tho
-    spawningEnemy.x += Math.random() * 30;
+    spawningEnemy.x += Math.random() * 150;
     enemyArray.push(spawningEnemy)
 }
 //drawEnemy
@@ -176,7 +177,7 @@ const gameOver = () => {
     gameFrame = 0;
     isJumping = false;
     isFalling = false;
-    timeBetweenSpawn = 225
+    timeBetweenSpawn = 500
     //new high score ?
     if (score > highscore) highscore = score;
     score = 0;
@@ -189,7 +190,7 @@ const gameOver = () => {
 const drawScore = () => {
     ctx.fillStyle = "white";
     const fontSize = 36;
-    ctx.fillText(`Score: ${Math.floor(score)} Highscore: ${Math.floor(highscore)}`, canvas.width / 2.7, fontSize);
+    ctx.fillText(`Score: ${Math.floor(score)} Highscore: ${Math.floor(highscore)}`, canvas.width / 2.9, fontSize);
     ctx.font = `${fontSize}px Designer`;
 }
 
