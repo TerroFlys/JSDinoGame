@@ -37,10 +37,12 @@ let fallForce = baseFallForce;
 const fallIncreaser = 1.04;
 //speed for the object that go towards the player
 let gameSpeed = 1;
+let gameFrame = 0;
 
 //gameLoop
 const drawGame = () => {
     requestAnimationFrame(drawGame)
+    gameFrame += 1;
     //clear the screen
     clearScreen()
     //spawn enemy
@@ -52,6 +54,8 @@ const drawGame = () => {
     //after that draw everything
     drawPlayer()
     drawEnemies()
+
+    enemyCleaner()
 }
 //method to clear the screen in order to redraw
 const clearScreen = () => {
@@ -66,10 +70,13 @@ const drawPlayer = () => {
 }
 //enemySpawner
 const spawnEnemy = () => {
+    // don't spawn enemy every frame
+    if (gameFrame % 300 !== 0) return;
     const spawningEnemy = {...enemy};
     const randomHeight = Math.random() * 15
     spawningEnemy.y = canvas.height-randomHeight;
     spawningEnemy.ySize = randomHeight;
+    spawningEnemy.x += Math.random()*30;
     enemyArray.push(spawningEnemy)
 }
 //drawEnemy
@@ -86,6 +93,9 @@ const enemyMove = () => {
     })
 }
 //remove Passed Enemies
+const enemyCleaner = () => {
+    enemyArray = enemyArray.filter(obj => obj.x >0-obj.xSize)
+}
 //collision detection
 
 //jump method
