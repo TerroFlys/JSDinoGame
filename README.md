@@ -13,7 +13,7 @@
 * [x] Create the basics of the site
 * [x] Movable player
 * [x] Enemy objects like a cactus
-* [ ] Create something that is playable
+* [x] Create something that is playable
 * [ ] Add images (*sprites*) instead of blocks etc
 * [ ] Base game
 * [ ] Score counter
