@@ -4,8 +4,17 @@
 const canvas = document.getElementById("game-canvas")
 const ctx = canvas.getContext("2d");
 
+//player / enemy images
 const playerImage = document.getElementById("dino-img");
 const enemyImage = document.getElementById("cactus-img");
+
+//backgrounds
+const backgrounds = [
+    document.getElementById("bg-0"),
+    document.getElementById("bg-3"),
+    document.getElementById("rock-bg"),
+    document.getElementById("snow-bg")
+]
 
 //size of the canvas, this is just for higher quality, it does not change the size in html
 //bootstrap makes it responsive inside html
@@ -79,6 +88,7 @@ const drawGame = () => {
 const clearScreen = () => {
     ctx.fillStyle = "black"
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(backgrounds[3],0, 0, canvas.width, canvas.height)
 }
 
 //draw the player
