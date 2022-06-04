@@ -66,6 +66,7 @@ let timeBetweenSpawn = 250
 //gameLoop
 const drawGame = () => {
     requestAnimationFrame(drawGame)
+    if (gameElement.style.display === "none") return;
     gameFrame += 1;
 
     //clear the screen
