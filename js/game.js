@@ -122,6 +122,8 @@ const enemyCleaner = () => {
 }
 //collision detection
 const collisionCheck = () => {
+    // first do the groundcheck
+    groundCheck()
     // if player collides with an enemy, reset game
     enemyArray.forEach(obj => {
         //check  if player's y is in enemies y
@@ -192,6 +194,12 @@ const drawScore = () => {
     const fontSize = 36;
     ctx.fillText(`Score: ${Math.floor(score)} Highscore: ${Math.floor(highscore)}`, canvas.width / 2.9, fontSize);
     ctx.font = `${fontSize}px Designer`;
+}
+// ground collision
+const groundCheck = () => {
+    if (player.y>canvas.height- player.ySize) {
+        player.y = canvas.height - player.ySize;
+    }
 }
 
 
