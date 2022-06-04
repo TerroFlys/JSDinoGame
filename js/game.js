@@ -39,6 +39,7 @@ const enemy = {
     ySize: 40 // added Y size to the enemy Y
 }
 let enemyArray = [] // list of spawned enemies
+let enemySize = 120
 
 //variables
 let score = 0;
@@ -117,7 +118,7 @@ const spawnEnemy = () => {
 
 
     const spawningEnemy = {...enemy};
-    const randomHeight = Math.random() * 60+15
+    const randomHeight = Math.random() * enemySize+15
     spawningEnemy.y = canvas.height - randomHeight;
     spawningEnemy.ySize = randomHeight;
     // a little different spawning for each enemy
