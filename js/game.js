@@ -3,8 +3,15 @@
 /**@type {HTMLCanvasElement}*/
 const canvas = document.getElementById("game-canvas")
 const ctx = canvas.getContext("2d");
+
+const playerImage = document.getElementById("dino-img");
+const enemyImage = document.getElementById("cactus-img");
+
+//size of the canvas, this is just for higher quality, it does not change the size in html
+//bootstrap makes it responsive inside html
 canvas.width = 1000;
 canvas.height = 500;
+
 
 
 //player object
@@ -77,7 +84,10 @@ const clearScreen = () => {
 //draw the player
 const drawPlayer = () => {
     ctx.fillStyle = "white"
-    ctx.fillRect(player.x, player.y, player.xSize, player.ySize)
+    //original cube player / hitbox
+    //ctx.fillRect(player.x, player.y, player.xSize, player.ySize)
+    //new Image for the player
+    ctx.drawImage(playerImage,player.x,player.y,player.xSize,player.ySize)
 }
 //enemySpawner
 const spawnEnemy = () => {
@@ -107,7 +117,10 @@ const spawnEnemy = () => {
 const drawEnemies = () => {
     enemyArray.forEach(obj => {
         ctx.fillStyle = "red"
-        ctx.fillRect(obj.x, obj.y, obj.xSize, obj.ySize)
+        //old box for enemy / its hitbox (if collisions do work)
+        //ctx.fillRect(obj.x, obj.y, obj.xSize, obj.ySize)
+        //enemy Image
+        ctx.drawImage(enemyImage,obj.x, obj.y, obj.xSize, obj.ySize)
     })
 }
 //Move enemy - Game speed stuff
