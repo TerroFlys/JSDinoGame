@@ -43,6 +43,8 @@ let enemyArray = [] // list of spawned enemies
 //variables
 let score = 0;
 let highscore = 0;
+//gets highscore from localstorage otherwise highscore = 0
+highscore = localStorage.getItem("highscore") ? JSON.parse(localStorage.getItem("highscore")) : 0
 let isJumping = false; // change this to true to start the jump
 let isFalling = true; // when reaching the ground this should be changed to false
 
@@ -204,7 +206,11 @@ const gameOver = () => {
     isFalling = false;
     timeBetweenSpawn = 500
     //new high score ?
-    if (score > highscore) highscore = score;
+    if (score > highscore) {
+        highscore = score;
+        // adds highscore to local storage
+        localStorage.setItem('highscore', JSON.stringify(highscore));
+    }
     score = 0;
     //empty enemy array
     enemyArray = []
